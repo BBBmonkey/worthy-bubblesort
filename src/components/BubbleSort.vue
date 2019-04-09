@@ -24,43 +24,43 @@ export default {
     return {
       arrToSort: [7, 3, 5, 10, 9, 12, 20],
       valToAdd: 1
-    }
+    };
   },
 
   methods: {
     async bubbleSort () {
-      let swapped
+      let swapped;
       do {
-        swapped = false
+        swapped = false;
         for (var i = 0; i < this.arrToSort.length; i++) {
           if (this.arrToSort[i] > this.arrToSort[i + 1]) {
-            await this.swap(i, i + 1)
-            swapped = true
+            await this.swap(i, i + 1);
+            swapped = true;
           }
         }
-      } while (swapped)
+      } while (swapped);
     },
 
     swap (i, j) {
-      let temp = this.arrToSort[i]
-      this.$set(this.arrToSort, i, this.arrToSort[j])
-      this.$set(this.arrToSort, j, temp)
-      return new Promise(resolve => setTimeout(resolve, 500))
+      let temp = this.arrToSort[i];
+      this.$set(this.arrToSort, i, this.arrToSort[j]);
+      this.$set(this.arrToSort, j, temp);
+      return new Promise(resolve => setTimeout(resolve, 500));
     },
 
     addToArr () {
       if (this.valToAdd >= 1 && this.valToAdd < 100) {
-        this.arrToSort.push(this.valToAdd)
+        this.arrToSort.push(this.valToAdd);
       } else {
-        alert('Values must be between 1 to 100')
+        alert('Values must be between 1 to 100');
       }
     },
 
     shuffle () {
-      this.arrToSort = this.arrToSort.sort(() => Math.random() - 0.5)
+      this.arrToSort = this.arrToSort.sort(() => Math.random() - 0.5);
     }
   }
-}
+};
 </script>
 
 <style scoped>
